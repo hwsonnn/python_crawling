@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>HTML연습</title>
+	<style>
+		* {
+			margin: 0px;
+		}
+		
+		header, nav, section, footer {
+			width : 800px;  
+		}
+		header {
+			height : 100px;
+			background-color: darkred;
+			color : white;
+			padding-top: 30px;
+			text-align: center;
+		}
+		
+		nav {
+			height: 40px;
+			text-align: center; 
+			background-color: wheat;
+		}
+		footer {
+			text-align: center; 
+			margin-top: 40px;
+		}
+		nav li {
+			display: inline-block;
+		}
+		li > a {
+			text-decoration: none;
+			display: inline-block;
+			padding-top: 5px;
+			width: 100px;
+			height: 40px;
+			box-sizing: border-box;
+		}
+
+		li > a:hover, li > a:active {
+			background-color: darkred;
+			color : white;
+		}
+		section > p {
+			margin: 20px;
+			box-sizing: border-box;
+		}
+	</style>
+</head>
+<body>
+	<header>
+    <h1>자유 소프트웨어(Free Software)</h1>
+	</header>
+	<nav>
+		<ul>
+			<li><a href="#m1">원칙1</a></li>
+			<li><a href="#m2">원칙2</a></li>
+			<li><a href="#m3">원칙3</a></li>
+		</ul>
+	</nav>
+    <section id="s1">
+	<p>
+	소프웨어의 소스가 공개되어 사용, 수정, 배포등에 제한이 없는 소프트웨어입니다.
+	</p>
+    <p>
+	즉, 소스 코드가 공개되어 누구나 소프트웨어를 자유롭게 수정할 수 있고, 자유롭게 복제 및 배포가 가능한 소프트웨어입니다.<br>
+	자유 소프트웨어는 대부분 무료로 제공됨으로 무료로 제공되는 프리웨어와 혼동이 되지만 전혀 다른 개념입니다.
+	</p>
+	</section>
+    <section>
+	<ul>
+		<li id="m1" class="c1">소프트웨어의 작동 원리를 연구하고 이를 자신의 필요에 맞게 변경시킬 수 있는 자유</li>
+		<li id="m2" class="c1">소프트웨어를 이웃과 함께 공유하기 위해서 이를 복제하고 배포할 수 있는 자유</li>
+		<li id="m3" class="c2">소프트웨어를 향상시키고 이를 공동체 전체의 이익을 위해서 다신 환원시킬 수 있는 자유</li>
+	</ul>
+    </section>
+	<footer>
+		<a href="https://www.fsf.org/">
+			<img src="https://static.fsf.org/common/img/logo-new.png" alt="자유소프트웨어재단">
+		</a>
+	</footer>
+	
+</body>
+</html>
+

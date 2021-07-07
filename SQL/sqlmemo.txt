@@ -1,0 +1,42 @@
+1. C:\Program Files\MariaDB 10.4\data디렉토리에서 my.ini를 메모장으로 열기
+2. my.ini 수정하기
+[mysqld]
+datadir=C:/Program Files/MariaDB 10.4/data
+port=3306
+innodb_buffer_pool_size=497M
+character-set-server=utf8
+collation-server=utf8_general_ci
+init_connect=SET collation_connection=utf8_general_ci
+init_connect=SET NAMES utf8
+[client]
+port=3306
+plugin-dir=C:/Program Files/MariaDB 10.4/lib/plugin
+default-character-set=utf8
+3. maria db의 서비스를 종료하기
+ -윈도우 검색에서 서비스를 찾아서 서비스창을 열어서 MariaDB 서비스를 중지->시작
+4. 다음 sql명령 실행해보기
+SHOW DATABASES ;
+
+CREATE DATABASE mydb2 ;
+
+USE mydb2 ;
+
+SHOW TABLES ;
+DESC codes ;
+
+show variables like 'c%';
+
+DROP TABLE codes ;
+CREATE TABLE codes (
+	fullcd CHAR(07) PRIMARY KEY,
+	kornm VARCHAR(20) NOT NULL,
+	engnm VARCHAR(20)
+)
+
+
+SELECT * FROM codes ;
+
+INSERT INTO codes (fullcd, kornm, engnm) 
+VALUES ("0105001", "서울시", "") ;
+
+

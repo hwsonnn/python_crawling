@@ -1,0 +1,1147 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Selenium으로 DOM 요소를 선택하는 방법"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Selenium으로 DOM 요소를 선택하는 방법은 BeautifulSoup와 비슷하면서도 약간 다릅니다. 따라서 주의하기 바랍니다.\n",
+    "\n",
+    "Selenium에서는 다음과 같은 메서드를 사용해 DOM 요소를 추출합니다."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# DOM 내부에 있는 여러 개의 요소 중 처음 찾아지는 요소를 추출:"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "###### id 속성으로 요소를 하나 추출합니다.\n",
+    "- find_element_by_id(id)\n",
+    "\n",
+    "###### name 속성으로 요소를 하나 추출합니다.\n",
+    "- find_element_by_name(name)\n",
+    "\n",
+    "###### CSS 선택자로 요소를 하나 추출합니다.\n",
+    "- find_element)by_css_selector(query)\n",
+    "\n",
+    "###### XPath를 지정해 요소를 하나 추출합니다.\n",
+    "- find_element_by_xpath(query)\n",
+    "\n",
+    "###### 태그 이름이 name에 해당하는 요소를 하나 추출합니다.\n",
+    "- find_element_by_tag_name(name)\n",
+    "\n",
+    "###### 링크 텍스트로 요소를 추출합니다.\n",
+    "- find_element_by_link_text(text)\n",
+    "\n",
+    "###### 링크의 자식 요소에 포함돼 있는 텍스트로 요소를 하나 추출합니다.\n",
+    "- find_element_by_partial_link_text(text)\n",
+    "\n",
+    "###### 클래스 이름이 name에 해당하는 요소를 하나 추출합니다.\n",
+    "- find_element_by_class_name(name)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# DOM 내부에 있는 모든 요소 추출:"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "###### CSS 선택자로 요소를 여러 개 추출합니다.\n",
+    "- find_elements_by_css_selector(query)\n",
+    "\n",
+    "###### XPath를 지정해 요소를 여러 개 추출합니다.\n",
+    "- find_elements_by_xpath(query)\n",
+    "\n",
+    "###### 태그 이름이 name에 해당하는 요소를 여러 개 추출합니다.\n",
+    "- find_elements_by_tag_name(name)\n",
+    "\n",
+    "###### 클래스 이름이 name에 해당하는 요소를 여러 개 추출합니다.\n",
+    "- find_elements_by_class_name(name)\n",
+    "\n",
+    "###### 링크의 자식 요소에 포함돼 있는 텍스트로 요소를 여러 개 추출합니다.\n",
+    "- find_elements_by_partial_link_text(text)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "참고로 이러한 검색 메서드를 사용했는데, 어떠한 요소도 찾지 못한다면 NoSuchElementException이라는 예외가 발생합니다."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Selenium으로 요소 조작하기\n",
+    "\n",
+    "특정한 DOM 요소를 선택하면 키를 입력하거나 클릭하는 등의 조작을 할 수 있습니다. 다음은 DOM 요소에 사용할 수 있는 메서드와 속성을 나타낸 것입니다.\n",
+    "\n",
+    "굉장히 많은 메서드가 제공되며, 다양하게 활용할 수 있습니다."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# DOM 요소에 적용할 수 있는 메서드와 속성:"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "###### 글자를 입력할 수 있는 요소의 글자를 지웁니다.\n",
+    "- clear()\n",
+    "\n",
+    "###### 요소를 클릭합니다.\n",
+    "- click()\n",
+    "\n",
+    "###### 요소의 속성 중 name에 해당하는 속성의 값을 추출합니다.\n",
+    "- get_attribute(name)\n",
+    "\n",
+    "###### 요소가 화면에 출력되는지 확인합니다.\n",
+    "- is_displayed()\n",
+    "\n",
+    "###### 요소가 활성화돼 있는지 확인합니다.\n",
+    "- is_enabled()\n",
+    "\n",
+    "###### 체크박스 등의 요소가 선택된 상태인지 확인합니다.\n",
+    "- is_selected()\n",
+    "\n",
+    "###### 스크린샷을 찍습니다.\n",
+    "- screenshot(filename)\n",
+    "\n",
+    "###### 키를 입력합니다.\n",
+    "- send_keys(value)\n",
+    "\n",
+    "###### 입력 양식을 전송합니다.\n",
+    "- submit()\n",
+    "\n",
+    "###### name에 해당하는 CSS 속성의 값을 추출합니다.\n",
+    "- value_of_css_property(name)\n",
+    "\n",
+    "###### 요소의 id 속성입니다.\n",
+    "- id\n",
+    "\n",
+    "###### 요소의 위치입니다.\n",
+    "- location\n",
+    "\n",
+    "###### 부모 요소입니다.\n",
+    "- parent\n",
+    "\n",
+    "###### 크기와 위치 정보를 가진 딕셔너리 자료형을 리턴합니다.\n",
+    "- rect\n",
+    "\n",
+    "###### 스크린샷을 Base64로 추출합니다.\n",
+    "- screenshot_as_base64\n",
+    "\n",
+    "###### 스크린샷을 PNG 형식의 바이너리로 추출합니다.\n",
+    "- screenshot_as_png\n",
+    "\n",
+    "###### 요소의 크기입니다.\n",
+    "- size\n",
+    "\n",
+    "###### 태그 이름입니다.\n",
+    "- tag_name\n",
+    "\n",
+    "###### 요소 내부의 글자입니다.\n",
+    "- text"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "또한 send_keys()로 키를 입력할 때는 텍스트 데이터 외에도 특수 키를 입력할 수 있습니다.\n",
+    "\n",
+    "특수 키를 사용하려면 다음 모듈을 사용해야 합니다.\n",
+    "##### from selenium.Webdriver.common.keys import Keys"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "이 모듈을 사용하면 다음과 같은 키를 사용할 수 있습니다.\n",
+    "- ARROW_DOWN / ARROW_LEFT / ARROW_RIGHT / ARROW_UP\n",
+    "- BACKSPACE / DELETE / HOME / END / INSERT\n",
+    "- ALT / COMMAND / CONTROL / SHIFT\n",
+    "- ENTER / ESCAPE / SPACE / TAB\n",
+    "- F1 / F2 / F3 / F4 / F5 ... / F12"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Selenium 드라이버 조작\n",
+    "\n",
+    "PhantomJS 전용 드라이버 객체는 다음과 같은 메서드를 사용할 수 있습니다. 대표적인 몇 가지만 정리했습니다."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# PhantomJS 전용 드라이버의 메서드와 속성:"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "###### 쿠키 값을 딕셔너리 형식으로 지정합니다(※1).\n",
+    "- add_cookie(cookie_dict)\n",
+    "\n",
+    "###### 이전 페이지 또는 다음 페이지로 이동합니다.\n",
+    "- back() / forward()\n",
+    "\n",
+    "###### 브라우저를 닫습니다.\n",
+    "- close()\n",
+    "\n",
+    "###### 현재 URL을 추출합니다.\n",
+    "- current_url\n",
+    "\n",
+    "###### 모든 쿠키를 제거합니다.\n",
+    "- delete_all_cookies()\n",
+    "\n",
+    "###### 특정 쿠키를 제거합니다.\n",
+    "- delete_cookie(name)\n",
+    "\n",
+    "###### 브라우저 고유의 명령어를 실행합니다.\n",
+    "- execute(command, params)\n",
+    "\n",
+    "###### 비동기 처리하는 자바스크립트를 실행합니다.\n",
+    "- execute_async_scripot(script, *args)\n",
+    "\n",
+    "###### 동기 처리하는 자바스크립트를 실행합니다.\n",
+    "- execute_script(script, *arps)\n",
+    "\n",
+    "###### 웹 페이지를 읽어 들입니다.\n",
+    "- get(url)\n",
+    "\n",
+    "###### 특정 쿠키 값을 추출합니다.\n",
+    "- get_cookie(name)\n",
+    "\n",
+    "###### 모든 쿠키 값을 딕셔너리 형식으로 추출합니다.\n",
+    "- get_cookies()\n",
+    "\n",
+    "###### 로그를 추출합니다(browse / driver / client / server).\n",
+    "- get_log(type)\n",
+    "\n",
+    "###### base64 형식으로 스크린샷을 추출합니다.\n",
+    "- get_screenshot_as_base64()\n",
+    "\n",
+    "###### 스크린샷을 파일로 저장합니다.\n",
+    "- get_screenshot_as_file(filename)\n",
+    "\n",
+    "###### PNG 형식으로 스크린샷의 바이너리를 추출합니다.\n",
+    "- get_screenshot_as_png()\n",
+    "\n",
+    "###### 브라우저의 위치를 추출합니다.\n",
+    "- get_window_position(windowHandle = 'current')\n",
+    "\n",
+    "###### 브라우저의 크기를 추출합니다.\n",
+    "- get_window_size(windowHandle = 'current')\n",
+    "\n",
+    "###### 최대 대기 시간을 초 단위로 지정해서 처리가 끝날 때까지 대기합니다.\n",
+    "- implicitly_wait(sec)\n",
+    "\n",
+    "###### 드라이버를 종료시켜 브라우저를 닫습니다.\n",
+    "- quit()\n",
+    "\n",
+    "###### 스크린샷을 저장합니다.\n",
+    "- save_screenshot(filename)\n",
+    "\n",
+    "###### 페이지를 읽는 타임아웃 시간을 지정합니다.\n",
+    "- set_page_load_timeout(time_to_wait)\n",
+    "\n",
+    "###### 스크립트의 타임아웃 시간을 지정합니다.\n",
+    "- set_script_timeout(time_to_wait)\n",
+    "\n",
+    "###### 브라우저의 위치를 지정합니다.\n",
+    "- set_window_position(x,y,windowHandle = 'current')\n",
+    "\n",
+    "###### 브라우저의 크기를 지정합니다.\n",
+    "- set_window_size(width, height, windowHandle = 'current')\n",
+    "\n",
+    "###### 현재 페이지의 타이틀을 추출합니다.\n",
+    "- title"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Selenium 메뉴얼\n",
+    "\n",
+    "이번 절에서는 Selenium에서 자주 사용하는 기능을 주로 살펴봤습니다.\n",
+    "\n",
+    "그 밖의 더 자세한 내용을 살펴보고 싶을 때는 다음 문서를 참고해주세요."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "+ Selenium with 파이썬\n",
+    "[URL] http://selenium-python.readthedocs.io/index.html\n",
+    "\n",
+    "+ SeleniumHQ Documentation\n",
+    "[URL] http://docs.seleniumhq.org/docs/"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.7.1"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}

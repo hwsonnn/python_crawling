@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="euc-kr">
+        <title>겨울방학특강</title>
+        <style>
+            * {
+                margin: 0px;
+            }
+            header {
+                height: 150px;
+                background-color: brown;
+                color:#ffffff;
+                text-align: center;
+                padding-top: 25px;
+                box-sizing: border-box;
+            }
+            nav {
+                height: 40px;
+                box-sizing: border-box;
+                background-color:wheat;
+                text-align: center;
+            }
+            .navli, nav a{
+                display: inline-block ;
+                width : 100px;
+                height : 30px;
+                background-color: wheat;    
+            }
+            section {
+                margin: 20px;
+            }
+            footer {
+                margin-top: 50px;
+                text-align: center;
+            }
+            /*
+            #m1 {
+                color : green ;
+            }
+            #m2 {
+                color :greenyellow;
+            }
+            #m3 {
+                color:hotpink;
+            }
+            */
+
+            nav ~ section {
+                color:hotpink;
+            }
+
+            nav a {
+                padding-top: 10px;
+                text-decoration: none;
+            }
+
+            nav a:link, nav a:visited {
+                color : green;
+                background-color: wheat;   
+            }
+            nav a:hover {
+                background-color: brown;
+                color: white ;
+            }
+            nav a:active {
+                background-color:teal;
+                color: white ;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+        <h1>자유 소프트웨어(Free Software)</h1>
+        </header>
+
+        <nav>
+        <ul>
+            <li class="navli"><a href="#m1">원칙1</a></li>
+            <li class="navli"><a href="#m2">원칙2</a></li>
+            <li class="navli"><a href="#m3">원칙3</a></li>
+        </ul>
+        </nav>
+        <section>
+        <p class="secp">
+        소프웨어의 소스가 공개되어 사용, 수정, 배포등에 제한이 없는 소프트웨어입니다.
+        </p>
+        <p class="secp">
+        즉, 소스 코드가 공개되어 누구나 소프트웨어를 자유롭게 수정할 수 있고, 자유롭게 복제 및 배포가 가능한 소프트웨어입니다.<br>
+        자유 소프트웨어는 대부분 무료로 제공됨으로 무료로 제공되는 프리웨어와 혼동이 되지만 전혀 다른 개념입니다.
+        </p>    
+        </section>
+        <section>
+        <ul>
+            <li id="m1">소프트웨어의 작동 원리를 연구하고 이를 자신의 필요에 맞게 변경시킬 수 있는 자유</li>
+            <li id="m2">소프트웨어를 이웃과 함께 공유하기 위해서 이를 복제하고 배포할 수 있는 자유</li>
+            <li id="m3">소프트웨어를 향상시키고 이를 공동체 전체의 이익을 위해서 다신 환원시킬 수 있는 자유</li>
+        </ul>
+        </section>
+        <footer>
+            <a href="https://www.gnu.org/">
+            <img src="https://www.gnu.org/graphics/logo-fsf.org-tiny.png" alt="자유소프트웨어">
+            </a>
+        </footer>
+    </body>
+</html>
